@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Snehal Mohite Portfolio Design System
+Modern color palette with gradients and animations for professional portfolio
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Portfolio Color Palette */
+    --background: 210 20% 98%;
+    --foreground: 230 63% 15%;
+
+    --card: 210 20% 98%;
+    --card-foreground: 230 63% 15%;
+
+    --popover: 210 20% 98%;
+    --popover-foreground: 230 63% 15%;
+
+    /* Primary: Deep Blue */
+    --primary: 230 63% 29%;
+    --primary-foreground: 210 20% 98%;
+    --primary-glow: 230 63% 45%;
+
+    /* Secondary: Teal */
+    --secondary: 174 64% 47%;
+    --secondary-foreground: 210 20% 98%;
+    --secondary-glow: 174 64% 60%;
+
+    /* Accent: Coral/Orange */
+    --accent: 0 100% 71%;
+    --accent-foreground: 210 20% 98%;
+    --accent-glow: 0 100% 80%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 230 20% 60%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 174 64% 47%;
+
+    --radius: 0.75rem;
+
+    /* Portfolio Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(var(--primary-glow) / 0.3), transparent 70%);
+
+    /* Shadows with portfolio colors */
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-card: 0 8px 30px hsl(var(--primary) / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--secondary) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 230 63% 15%;
+    --foreground: 210 20% 98%;
+
+    --card: 230 63% 15%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 230 63% 15%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 174 64% 47%;
+    --primary-foreground: 230 63% 15%;
+    --primary-glow: 174 64% 60%;
+
+    --secondary: 230 40% 25%;
+    --secondary-foreground: 210 20% 98%;
+    --secondary-glow: 230 40% 35%;
+
+    --accent: 0 100% 71%;
+    --accent-foreground: 230 63% 15%;
+    --accent-glow: 0 100% 80%;
+
+    --muted: 230 40% 20%;
+    --muted-foreground: 210 20% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 40% 25%;
+    --input: 230 40% 25%;
+    --ring: 174 64% 47%;
+
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Portfolio Components */
+  .portfolio-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Portfolio Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--secondary) / 0.6);
+  }
+}
